@@ -34,20 +34,20 @@
       {
         "idFabricante": "1",
         "nombre": "Jose Cuervo",
-        "marcas": [],
-        "logo": "",
+        "marcas": "",
+        "logo": ""
       },
       {
         "idFabricante": "2",
         "nombre": "Corralejo",
-        "marcas": [],
-        "logo": "",
+        "marcas": "",
+        "logo": ""
       },
       {
         "idFabricante": "",
         "nombre": "Centenario",
-        "marcas": [],
-        "logo": "",
+        "marcas": "",
+        "logo": ""
       }
     ]
 }

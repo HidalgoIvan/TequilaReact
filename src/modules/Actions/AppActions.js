@@ -16,7 +16,7 @@ module.exports = {
   getFabricante: function(fabricante) {
     AppDispatcher.handleViewAction({
       actionType: Constants.GET_FABRICANTE,
-      fabricante: tequila
+      fabricante: fabricante
     });
 
     TequilaAPI.getFabricantes(fabricante);
