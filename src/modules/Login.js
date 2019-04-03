@@ -64,12 +64,12 @@ class Login extends Component {
             value={this.state.password}
             onChange={(event) => this.handleUserInput(event)}
           />
-          <Button variant="outlined" color="primary" className={styles.button} disabled={!this.state.formValid}> 
+          <Button variant="outlined" color="primary" style={styles.button} disabled={!this.state.formValid}> 
             Login
       </Button>
-      
+
         </form>
-        
+
       </div >
     );
   }
@@ -78,7 +78,7 @@ class Login extends Component {
     console.log(e);
     const name = e.target.name;
     const value = e.target.value;
-    this.setState({[name]: value}, 
+    this.setState({[name]: value},
       () => { this.validateField(name, value) });
   }
 
@@ -86,7 +86,7 @@ class Login extends Component {
     let fieldValidationErrors = this.state.formErrors;
     let emailValid = this.state.emailValid;
     let passwordValid = this.state.passwordValid;
-  
+
     switch(fieldName) {
       case 'email':
         emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
@@ -104,7 +104,7 @@ class Login extends Component {
                     passwordValid: passwordValid
                   }, this.validateForm);
   }
-  
+
   validateForm() {
     this.setState({formValid: this.state.emailValid && this.state.passwordValid});
   }
