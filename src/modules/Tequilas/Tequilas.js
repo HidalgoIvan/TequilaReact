@@ -19,8 +19,8 @@ class Tequilas extends Component {
   }
 
   componentDidMount(){
-      console.log(this.props.botellas);
-      TodoActions.getTequila(this.props.botellas);
+      console.log(this.state.botellas);
+      TodoActions.getTequila(this.state.botellas);
       TodoStore.addChangeListener(this._onChange);
   }
 

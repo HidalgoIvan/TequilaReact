@@ -14,7 +14,7 @@ class CardGrid extends Component {
     }
     var botellasTequila = [];
     console.log("STATE TEQUILAS");
-    console.log(this.state.tequilas.list[0]);
+    console.log(this.state.tequilas.list);
 
     if(this.state.tequilas.list !== undefined && this.state.tequilas.list !== null) {
       var data = this.state.tequilas.list;
@@ -36,8 +36,6 @@ class CardGrid extends Component {
 
           }
         });
-    }else{
-      this.render();
     }
     return (
       <div className={styles.root}>
