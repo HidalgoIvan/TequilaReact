@@ -12,6 +12,15 @@ module.exports = {
     });
 
     TequilaAPI.get(tequila);
+  },
+  getFabricante: function(fabricante) {
+    AppDispatcher.handleViewAction({
+      actionType: Constants.GET_FABRICANTE,
+      fabricante: tequila
+    });
+
+    TequilaAPI.getFabricantes(fabricante);
   }
+
 
 };

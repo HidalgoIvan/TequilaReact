@@ -29,5 +29,25 @@
             "numeroDeEtiqueta":"UR3RT8Y41F"
         }
 
+    ],
+    "fabricantes":[
+      {
+        "idFabricante": "1",
+        "nombre": "Jose Cuervo",
+        "marcas": [],
+        "logo": "",
+      },
+      {
+        "idFabricante": "2",
+        "nombre": "Corralejo",
+        "marcas": [],
+        "logo": "",
+      },
+      {
+        "idFabricante": "",
+        "nombre": "Centenario",
+        "marcas": [],
+        "logo": "",
+      }
     ]
 }

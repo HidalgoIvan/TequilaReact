@@ -9,4 +9,10 @@ module.exports = {
       response: response
     });
   },
+  getFabricante: function(response) {
+    AppDispatcher.handleServerAction({
+      actionType: TodoConstants.GET_FABRICANTE_RESPONSE,
+      response: response
+    });
+  },
 };

@@ -55,6 +55,20 @@ AppDispatcher.register(function(payload) {
       }
       TodoStore.emit(CHANGE_EVENT);
       break;
+      case AppConstants.GET_FABRICANTE_RESPONSE:
+        console.log(action.response);
+        // Construct the new todo string
+        var newTodo = action.response;
+
+        // Add the new todo to the list
+        if(_store.list.length<1){
+          _store.list.push(newTodo);
+        }else{
+          _store.list.pop();
+          _store.list.push(newTodo);
+        }
+        TodoStore.emit(CHANGE_EVENT);
+        break;
 
     default:
       return true;
