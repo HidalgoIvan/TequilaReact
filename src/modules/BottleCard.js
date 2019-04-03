@@ -21,11 +21,14 @@ const styles = {
 class BottleCard extends Component {
   render() {
     this.state={
-      tequila : this.props.tequila,
+      //tequila : this.props.tequila,
+      marca: this.props.marca,
+      submarca: this.props.submarca,
+      clasificacion: this.props.clasificacion,
+      numeroDeEtiqueta: this.props.numeroDeEtiqueta,
     }
     return (
       <div>
-      {this.state.tequila}
       <Card style={styles.card}>
       <CardContent>
         <Typography color="textSecondary" gutterBottom>
@@ -33,19 +36,19 @@ class BottleCard extends Component {
         </Typography>
         <img src={require('../img/bottle.png')}/>
         <Typography variant="h5">
-          Nombre de tequila
+          Nombre de tequila:
         </Typography>
         <Typography component="p">
-          Marca
+          Marca: {this.state.marca}
         </Typography>
         <Typography component="p">
-          Submarca
+          Submarca: {this.state.submarca}
         </Typography>
         <Typography component="p">
-          Clasificación
+          Clasificación: {this.state.clasificacion}
         </Typography>
         <Typography component="p">
-          No. de etiqueta
+          No. de etiqueta: {this.state.numeroDeEtiqueta}
         </Typography>
       </CardContent>
     </Card>
