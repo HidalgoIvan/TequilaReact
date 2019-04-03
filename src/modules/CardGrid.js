@@ -8,13 +8,14 @@ const styles = {
 };
 class CardGrid extends Component {
   render() {
+    this.state={
+      tequila: this.props.tequila
+    }
     return (
       <div className={styles.root}>
-        <Grid container spacing={24} justify="space-evenly" alignItems="center">
-          <BottleCard item xs={24}/>
-          <BottleCard item xs={24}/>
-          <BottleCard item xs={24}/>
-          <BottleCard item xs={24}/>
+        <Grid container spacing={24}>
+          <BottleCard tequila={this.state.tequila} item xs={24} style={{margin: "0 auto"}}/>
+          <BottleCard tequila={this.state.tequila} item xs={24} style={{margin: "0 auto"}}/><BottleCard tequila={this.state.tequila} item xs={24} style={{margin: "0 auto"}}/><BottleCard item xs={24} style={{margin: "0 auto"}}/>
         </Grid>
       </div>
     );

@@ -15,12 +15,18 @@ const styles = {
     borderWidth: 1,
     borderStyle: "solid",
     textAlign: "center",
+    margin: "0 auto"
   },
 
 };
 class BottleCard extends Component {
   render() {
+    this.state={
+      tequila : this.props.tequila,
+    }
     return (
+      <div>
+      {this.state.tequila}
       <Card style={styles.card}>
       <CardContent>
         <Typography color="textSecondary" gutterBottom>
@@ -44,6 +50,7 @@ class BottleCard extends Component {
         </Typography>
       </CardContent>
     </Card>
+    </div>
     );
   }
 }
