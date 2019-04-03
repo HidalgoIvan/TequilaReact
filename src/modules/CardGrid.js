@@ -9,26 +9,32 @@ const styles = {
 class CardGrid extends Component {
   render() {
     this.state={
-      tequila: this.props.tequila
+      tequilas: this.props.tequila
     }
-    /*var clima = [];
-          var data = Array.from(this.props.list.list);
-          if(this.props.list.list !== undefined && this.props.list.list !== null) {
-            data.forEach(item => {
-              if(item !== undefined){
-              var forecast = Array.from(item.forecast.forecastday);
-              forecast.forEach((element, i) => {
-                clima.push(<ForeCast key={i} element={element} />);
-              });
-              }
-            });
-          }else{
-            this.render();
-          }*/
+    var botellasTequila = [];
+    var data = Array.from(this.state.tequilas);
+    if(this.props.tequila !== undefined && this.props.tequila !== null) {
+      console.log(data); //Aqui imprime
+      data.forEach(item => {
+        if(item !== undefined){
+          /*
+          item = objeto [] de botellas
+          item.marca
+          item.submarca
+          item.fotografia
+          item.clasificacion
+          item.numeroDeEtiqueta
+          */
+          // botellasTequila.push(<BottleCard key={item.numeroDeEtiqueta} .... />);
+        }
+        });
+    }else{
+      this.render();
+    }
     return (
       <div className={styles.root}>
         <Grid container spacing={24} justify="space-evenly" alignItems="center">
-          <BottleCard tequila={this.state.tequila} item xs={24} style={{margin: "0 auto"}}/>
+          {botellasTequila}
         </Grid>
       </div>
     );

@@ -1,14 +1,14 @@
 // Todo actions
 var AppDispatcher = require('../AppDispatcher');
 var Constants = require('../AppConstants');
-var WheatherAPI = require('../WheatherAPI.js');
+var TequilaAPI = require('../TequilaAPI.js');
 
 module.exports = {
 
-  getTequila: function(city) {
+  getTequila: function(tequila) {
     AppDispatcher.handleViewAction({
       actionType: Constants.GET_TEQUILA,
-      tequila: city
+      tequila: tequila
     });
 
     TequilaAPI.get(tequila);
