@@ -6,7 +6,7 @@ import '../App.css';
 class NavBar extends Component {
   render() {
     return (
-    	<div>
+      <div>
         <AppBar>
           <Toolbar>
       				<img className="logo" src={require('../img/logo.png')} style={{width: 50, height: 50}} alt="logo"/>
@@ -17,7 +17,9 @@ class NavBar extends Component {
       				<span className="mdc-top-app-bar__title bar__title"></span>
           </Toolbar>
       	</AppBar>
-	   </div>
+        <div style={{height:80}}>
+        </div>
+      </div>
     );
   }
 }
