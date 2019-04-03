@@ -1,6 +1,7 @@
 {
     "botellas":[
         {
+            "id":0,
             "marca":"Rancho Escondido",
             "submarca":"Rancho Escondido",
             "fotografia":"img/ranchoEscondido.jpg",
@@ -8,6 +9,7 @@
             "numeroDeEtiqueta":"0123456789"
         },
         {
+          "id":1,
             "marca":"Jose Cuervo",
             "submarca":"Plata",
             "fotografia":"img/josecuervoplata.jpg",
@@ -15,6 +17,7 @@
             "numeroDeEtiqueta":"75891138"
         },
         {
+          "id":2,
             "marca":"Herradura",
             "submarca":"Antiguo",
             "fotografia":"img/herraduraantiguo.jpg",
@@ -22,6 +25,7 @@
             "numeroDeEtiqueta":"A2S4D8FYT"
         },
         {
+          "id":3,
             "marca":"Patron",
             "submarca":"Añejo",
             "fotografia":"img/patron.jpg",
