@@ -36,13 +36,10 @@ class BottleCard extends Component {
         </Typography>
         <img src={require('../img/bottle.png')}/>
         <Typography variant="h5">
-          Nombre de tequila:
+          Nombre: {this.state.submarca}
         </Typography>
         <Typography component="p">
           Marca: {this.state.marca}
-        </Typography>
-        <Typography component="p">
-          Submarca: {this.state.submarca}
         </Typography>
         <Typography component="p">
           Clasificación: {this.state.clasificacion}
