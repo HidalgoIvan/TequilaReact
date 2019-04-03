@@ -11,6 +11,20 @@ class CardGrid extends Component {
     this.state={
       tequila: this.props.tequila
     }
+    var clima = [];
+          var data = Array.from(this.props.list.list);
+          if(this.props.list.list !== undefined && this.props.list.list !== null) {
+            data.forEach(item => {
+              if(item !== undefined){
+              var forecast = Array.from(item.forecast.forecastday);
+              forecast.forEach((element, i) => {
+                clima.push(<ForeCast key={i} element={element} />);
+              });
+              }
+            });
+          }else{
+            this.render();
+          }
     return (
       <div className={styles.root}>
         <Grid container spacing={24}>
