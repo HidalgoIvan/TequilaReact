@@ -15,7 +15,6 @@ const styles = {
     borderWidth: 1,
     borderStyle: "solid",
     textAlign: "center",
-    margin: "0 auto"
   },
 
 };

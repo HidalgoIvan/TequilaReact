@@ -10,9 +10,11 @@ class CardGrid extends Component {
   render() {
     return (
       <div className={styles.root}>
-        <Grid container spacing={24}>
-          <BottleCard item xs={24} style={{margin: "0 auto"}}/>
-          <BottleCard item xs={24} style={{margin: "0 auto"}}/><BottleCard item xs={24} style={{margin: "0 auto"}}/><BottleCard item xs={24} style={{margin: "0 auto"}}/>
+        <Grid container spacing={24} justify="space-evenly" alignItems="center">
+          <BottleCard item xs={24}/>
+          <BottleCard item xs={24}/>
+          <BottleCard item xs={24}/>
+          <BottleCard item xs={24}/>
         </Grid>
       </div>
     );
