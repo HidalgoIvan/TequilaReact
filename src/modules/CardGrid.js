@@ -30,7 +30,7 @@ class CardGrid extends Component {
               item.fotografia
               item.clasificacion
               item.numeroDeEtiqueta*/
-              botellasTequila.push(<BottleCard key={i} marca={item2.marca} submarca={item2.submarca} fotografia={item2.fotografia} clasificacion={item2.clasificacion} numeroDeEtiqueta={item2.numeroDeEtiqueta}/>);
+              botellasTequila.push(<BottleCard key={i} fotografia={item2.fotografia} marca={item2.marca} submarca={item2.submarca} fotografia={item2.fotografia} clasificacion={item2.clasificacion} numeroDeEtiqueta={item2.numeroDeEtiqueta}/>);
               i++;
             });
 

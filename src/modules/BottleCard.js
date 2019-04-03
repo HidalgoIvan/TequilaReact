@@ -26,7 +26,10 @@ class BottleCard extends Component {
       submarca: this.props.submarca,
       clasificacion: this.props.clasificacion,
       numeroDeEtiqueta: this.props.numeroDeEtiqueta,
+      fotografia: this.props.fotografia
     }
+    var imgPath = '../' + this.state.fotografia ;
+    console.log(imgPath);
     return (
       <div>
       <Card style={styles.card}>
@@ -34,9 +37,9 @@ class BottleCard extends Component {
         <Typography color="textSecondary" gutterBottom>
           Información de la botella
         </Typography>
-        <img src={require('../img/bottle.png')}/>
+        <img src={require(`../${this.state.fotografia}`)} style={{height: 300, width: "auto"}}/>
         <Typography variant="h5">
-          Nombre: {this.state.submarca}
+          {this.state.submarca}
         </Typography>
         <Typography component="p">
           Marca: {this.state.marca}
