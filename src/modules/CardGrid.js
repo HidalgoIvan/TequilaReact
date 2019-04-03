@@ -27,9 +27,8 @@ class CardGrid extends Component {
           }
     return (
       <div className={styles.root}>
-        <Grid container spacing={24}>
+        <Grid container spacing={24} justify="space-evenly" alignItems="center">
           <BottleCard tequila={this.state.tequila} item xs={24} style={{margin: "0 auto"}}/>
-          <BottleCard tequila={this.state.tequila} item xs={24} style={{margin: "0 auto"}}/><BottleCard tequila={this.state.tequila} item xs={24} style={{margin: "0 auto"}}/><BottleCard item xs={24} style={{margin: "0 auto"}}/>
         </Grid>
       </div>
     );
