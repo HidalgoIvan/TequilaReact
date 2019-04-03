@@ -33,21 +33,27 @@
     "fabricantes":[
         {
         "idFabricante": "1",
-        "nombre": "Jose Cuervo",
+        "nombre": "Rancho Escondido",
         "marcas": "",
-        "logo": ""
+        "logo": "img/ranchoEscondido.jpg"
       },
       {
         "idFabricante": "2",
-        "nombre": "Corralejo",
+        "nombre": "Jose Cuervo",
         "marcas": "",
-        "logo": ""
+        "logo": "img/josecuervoplata.jpg"
       },
       {
-        "idFabricante": "",
-        "nombre": "Centenario",
+        "idFabricante": "3",
+        "nombre": "Herradura",
         "marcas": "",
-        "logo": ""
+        "logo": "img/herraduraantiguo.jpg"
+      },
+      {
+        "idFabricante": "4",
+        "nombre": "Patron",
+        "marcas": "",
+        "logo": "img/patron.jpg"
       }
     ]
 }
