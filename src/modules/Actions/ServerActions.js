@@ -5,7 +5,7 @@ module.exports = {
 
   getWheather: function(response) {
     AppDispatcher.handleServerAction({
-      actionType: TodoConstants.GET_WHEATHER_RESPONSE,
+      actionType: TodoConstants.GET_TEQUILA_RESPONSE,
       response: response
     });
   },

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './InfoBasica.css';
+import NavBar from '../NavBar';
+import CardGrid from '../CardGrid';
 class InfoBasica extends Component {
   render() {
     this.state={
@@ -8,6 +10,8 @@ class InfoBasica extends Component {
     return (
         <div>
           {this.state.tequila}
+          <NavBar/>
+          <CardGrid tequila={this.state.tequila}/>
         </div>
     );
   }

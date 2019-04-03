@@ -7,11 +7,11 @@ module.exports = {
 
   getWheather: function(city) {
     AppDispatcher.handleViewAction({
-      actionType: Constants.GET_WHEATHER,
-      city: city
+      actionType: Constants.GET_TEQUILA,
+      tequila: city
     });
 
-    WheatherAPI.get(city);
+    TequilaAPI.get(tequila);
   }
 
 };

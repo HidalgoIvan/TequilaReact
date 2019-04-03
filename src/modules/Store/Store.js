@@ -41,7 +41,7 @@ AppDispatcher.register(function(payload) {
 
   switch(action.actionType) {
 
-    case AppConstants.GET_WHEATHER_RESPONSE:
+    case AppConstants.GET_TEQUILA_RESPONSE:
       console.log(action.response);
       // Construct the new todo string
       var newTodo = action.response;
