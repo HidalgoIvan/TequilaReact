@@ -7,7 +7,7 @@ class Main extends Component {
         <header id="barraNavegacion" className="mdc-top-app-bar mdc-top-app-bar--short barra">
 		<div className="mdc-top-app-bar__row ">
 			<section className="mdc-top-app-bar__section mdc-top-app-bar__section--align-start logo-section">
-				<img className="logo" src="img/logo.png" alt="logo"/>
+				<img className="logo" src={require('../img/logo.png')} alt="logo"/>
 				<span className="mdc-top-app-bar__title bar__title ">Tequila Patrón</span>
 			</section>
 			<section className="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
@@ -46,7 +46,7 @@ class Main extends Component {
 			<div className="mdc-layout-grid__inner">
 				<div className=" mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
 					<div className="tarjeta">
-						<img src="img/ba.jpg" alt="ba.jpg"/>
+						<img src={require('../img/ba.jpg')} alt="ba.jpg"/>
 						<p id="lugar1" className="lugar">Bodegas Alianza</p>
 						<p className="precio">450.00 $</p>
 						<button className="mdc-button">
@@ -56,7 +56,7 @@ class Main extends Component {
 				</div>
 				<div className=" mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
 					<div className="tarjeta">
-						<img src="e.jpg" alt="e.jpg"/>
+						<img src={require('../img/e.jpg')} alt="e.jpg"/>
 						<p id="lugar2" className="lugar">La Europea</p>
 						<p className="precio">450.00 $</p>
 						<button className="mdc-button">
@@ -68,7 +68,7 @@ class Main extends Component {
 			<div className="mdc-layout-grid__inner">
 				<div className=" mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
 					<div className="tarjeta">
-						<img src="s.png" alt="s.jpg"/>
+						<img src={require('../img/s.png')} alt="s.jpg"/>
 						<p id="lugar3" className="lugar">Soriana</p>
 						<p className="precio">450.00 $</p>
 
@@ -79,7 +79,7 @@ class Main extends Component {
 				</div>
 				<div className=" mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
 					<div className="tarjeta">
-						<img src="w.jpg" alt="w.jpg"/>
+						<img src={require('../img/w.jpg')} alt="w.jpg"/>
 						<p id="lugar4" className="lugar">Walmart</p>
 						<p className="precio">450.00 $</p>
 						<button className="mdc-button">
