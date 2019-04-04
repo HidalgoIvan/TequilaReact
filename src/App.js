@@ -15,7 +15,7 @@ class App extends Component {
       <BrowserRouter>
           <Route path='/' exact component={Login} />
           <Route path='/botella/:tequila' exact component={InfoBasica}/>
-          <Route path='/fabricante/:fabricante' exact component={Fabricante}/>
+          <Route path='/fabricantes/:fabricante' exact component={Fabricante}/>
           <Route path='/table' exact component={Table}/>
           <Route path='/tequilas' exact component={Tequilas}/>
           <Route path='/tequilas/search/:etiqueta' exact component={TequilasSearch}/>

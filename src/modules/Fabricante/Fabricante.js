@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-
-
+import FabricanteCard from '../FabricanteCard.js';
+import NavBar from '../NavBar.js';
 var TodoActions = require('../Actions/AppActions.js');
 var TodoStore = require('../Store/Store.js');
-var fabricantesSearch = Array();
-
+var fabricantesSearch = [];
 class Fabricante extends Component {
+
   state = {
     fabricantes: TodoStore.getListFabricantes().list,
     fabricante: this.props.match.params.fabricante,
@@ -26,7 +26,7 @@ class Fabricante extends Component {
   }
 
   render() {
-
+    console.log({"fabricante":this.state.fabricantes});
 
     this.state.fabricantes.forEach(item => {
       item.forEach(item2 => {
@@ -35,18 +35,20 @@ class Fabricante extends Component {
           console.log({ "itemsearch": item2 });
           fabricantesSearch.push(item2);
         }
-        console.log({ "search": fabricantesSearch });
+        // console.log({ "search": fabricantesSearch });
       });
     });
     return (
+      // <FabricanteCard nombre={fabricantesSearch['nombre']} marcas={fabricantesSearch['marcas']}/>
       <div>
-
-        {fabricantesSearch}
+      <NavBar/>
+      {(fabricantesSearch[0] != null && fabricantesSearch[0] != undefined)
+        ?
+        <FabricanteCard nombre={fabricantesSearch[0].nombre} marcas={fabricantesSearch[0].marcas} desc={fabricantesSearch[0].desc}/>
+        : console.log("error")
+      }
       </div>
-
     );
   }
 }
 export default Fabricante;
-
-
