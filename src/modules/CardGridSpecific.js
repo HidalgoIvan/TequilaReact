@@ -5,7 +5,8 @@ import NavBar from './NavBar';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+var etiquetaLoca = "";
 const styles = {
   root: {
     flexGrow: 1,
@@ -15,10 +16,19 @@ const styles = {
   },
 };
 class CardGridSpecific extends Component {
+  updateInputValue = (evt) => {
+    console.log("event:", evt.target.value);
+    this.setState({
+      etiqueta: evt.target.value
+    });
+    etiquetaLoca = evt.target.value
+    console.log("ETIQUETA VALUE:", etiquetaLoca);
+  }
+
   render() {
     this.state={
       tequilas: this.props.tequila,
-      etiqueta: this.props.etiqueta,
+      etiqueta: etiquetaLoca,
     }
     var botellasTequila = [];
     console.log("STATE TEQUILAS");
@@ -26,8 +36,6 @@ class CardGridSpecific extends Component {
 
     if(this.state.tequilas.list !== undefined && this.state.tequilas.list !== null) {
       var data = this.state.tequilas.list;
-      console.log("DATA 18");
-      console.log(data); //Aqui imprime
       var i = 1;
       data.forEach(item => {
           if(item !== undefined){
@@ -67,10 +75,8 @@ class CardGridSpecific extends Component {
           InputLabelProps={{
             shrink: true,
           }}
+          onChange={this.updateInputValue}
         />
-        <Button variant="contained" color="primary" style={styles.button}>
-          Buscar
-        </Button>
         <Grid container spacing={24} justify="space-evenly" alignItems="center">
           {botellasTequila}
         </Grid>
