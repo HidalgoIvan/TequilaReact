@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
+import CardGridFabricantes from '../CardGridFabricantes.js';
 
 var TodoActions = require('../Actions/AppActions.js');
 var TodoStore = require('../Store/Store.js');
 
 class Fabricante extends Component {
   state={
-    fabricantes: TodoStore.getList(),
+    fabricantes: TodoStore.getList().list,
     fabricante: this.props.match.params.fabricante,
   };
 
@@ -24,10 +25,12 @@ class Fabricante extends Component {
   }
 
   render(){
-      console.log(this.state.fabricante);
+
       return (
-        {}
+        <CardGridFabricantes tequila={this.state.botellas} fabricante={this.state.fabricante}/>
       );
   }
 }
 export default Fabricante;
+
+
