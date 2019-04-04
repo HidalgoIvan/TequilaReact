@@ -38,26 +38,30 @@
         {
         "idFabricante": "1",
         "nombre": "Rancho Escondido",
-        "marcas": "",
-        "logo": "img/ranchoEscondido.jpg"
+        "marcas": "Rancho salvaje, Rancho cristalino",
+        "logo": "img/ranchoEscondido.jpg",
+        "desc": "Somos Rancho Escondido, llevamos haciendo tequila más de..."
       },
       {
         "idFabricante": "2",
         "nombre": "Jose Cuervo",
-        "marcas": "",
-        "logo": "img/josecuervoplata.jpg"
+        "marcas": "Letra adicional, Cosas",
+        "logo": "img/josecuervoplata.jpg",
+        "desc": "En Jose Cuervo creemo que lo más importantes del tequila es..."
       },
       {
         "idFabricante": "3",
         "nombre": "Herradura",
-        "marcas": "",
-        "logo": "img/herraduraantiguo.jpg"
+        "marcas": "Herradura premium, Herradura 70",
+        "logo": "img/herraduraantiguo.jpg",
+        "desc":"En Herradura nos importa muchísimo nuestro tequila y por eso..."
       },
       {
         "idFabricante": "4",
         "nombre": "Patron",
-        "marcas": "",
-        "logo": "img/patron.jpg"
+        "marcas": "Patron reposado, Patron plata",
+        "logo": "img/patron.jpg",
+        "desc":"Nosotros en Patron tenemos una tradición con el tequila, desde..."
       }
     ]
 }
