@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import NavBar from './NavBar';
+import NavBarPre from './NavBarPre';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 const styles = {
   container: {
     display: 'flex',
@@ -40,8 +41,8 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <NavBar />
-        <form className={styles.container} autoComplete="off">
+        <NavBarPre />
+        <form className={styles.container} style={{textAlign: "center"}} autoComplete="off">
           <TextField
             required
             label="Mail"
@@ -52,7 +53,7 @@ class Login extends Component {
             variant="outlined"
             value={this.state.email}
             onChange={(event) => this.handleUserInput(event)}
-          />
+          /><br/>
           <TextField
             label="Password"
             className="form-group"
@@ -63,9 +64,10 @@ class Login extends Component {
             variant="outlined"
             value={this.state.password}
             onChange={(event) => this.handleUserInput(event)}
-          />
-          <Button variant="outlined" color="primary" style={styles.button} disabled={!this.state.formValid}> 
-            Login
+            style={{margin:"0 auto"}}
+          /><br/>
+          <Button variant="outlined" color="primary" style={styles.button} disabled={!this.state.formValid}>
+            <Link to={`/tequilas`} style={{textDecoration: "none"}}>Login</Link>
       </Button>
 
         </form>

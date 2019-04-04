@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import NavBar from './NavBar';
+import NavBarPre from './NavBarPre';
 import CardGrid from './CardGrid';
 class Main extends Component {
   render() {
     return (
       <div>
-      	<NavBar/>
+      	<NavBarPre/>
         <CardGrid/>
       </div>
     );
