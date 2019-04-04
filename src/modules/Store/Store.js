@@ -13,6 +13,11 @@ var _store = {
   editing: false
 };
 
+var _storeFabricantes = {
+  list: [],
+  editing: false
+};
+
 // Define the public event listeners and getters that
 // the views will use to listen for changes and retrieve
 // the store
@@ -28,6 +33,10 @@ var TodoStore = ObjectAssign( {}, EventEmitter.prototype, {
 
   getList: function() {
     return _store;
+  },
+
+  getListFabricantes: function() {
+    return _storeFabricantes;
   }
 
 });
@@ -61,11 +70,11 @@ AppDispatcher.register(function(payload) {
         var newTodo = action.response;
 
         // Add the new todo to the list
-        if(_store.list.length<1){
-          _store.list.push(newTodo);
+        if(_storeFabricantes.list.length<1){
+          _storeFabricantes.list.push(newTodo);
         }else{
-          _store.list.pop();
-          _store.list.push(newTodo);
+          _storeFabricantes.list.pop();
+          _storeFabricantes.list.push(newTodo);
         }
         TodoStore.emit(CHANGE_EVENT);
         break;
