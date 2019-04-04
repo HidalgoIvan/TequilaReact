@@ -62,6 +62,13 @@
         "marcas": "Patron reposado, Patron plata",
         "logo": "img/patron.jpg",
         "desc":"Nosotros en Patron tenemos una tradición con el tequila, desde..."
+      },
+      {
+        "idFabricante": "5",
+        "nombre": "HerraduraLoca",
+        "marcas": "Patron reposado, Patron plata",
+        "logo": "img/patron.jpg",
+        "desc":"Esta es una prueba..."
       }
     ]
 }
