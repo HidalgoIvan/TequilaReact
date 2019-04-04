@@ -19,15 +19,11 @@ const styles = {
   },
 
 };
-class BottleCard extends Component {
+class FabricanteCard extends Component {
   render() {
     this.state={
-      //tequila : this.props.tequila,
-      marca: this.props.marca,
-      submarca: this.props.submarca,
-      clasificacion: this.props.clasificacion,
-      numeroDeEtiqueta: this.props.numeroDeEtiqueta,
-      fotografia: this.props.fotografia
+      nombre: this.props.nombre,
+      marcas: this.props.marcas
     }
     var imgPath = '../' + this.state.fotografia ;
     console.log(imgPath);
@@ -36,20 +32,13 @@ class BottleCard extends Component {
       <Card style={styles.card}>
       <CardContent>
         <Typography color="textSecondary" gutterBottom>
-          Información de la botella
+          {this.state.nombre}
         </Typography>
-        <img src={require(`../${this.state.fotografia}`)} style={{height: 300, width: "auto"}}/>
         <Typography variant="h5">
-          {this.state.submarca}
+          Marcas: {this.state.marcas}
         </Typography>
         <Typography component="p">
-        <Link to={`/fabricantes/${this.state.marca}`} style={{textDecoration: "none"}}>Fabricante: {this.state.marca}</Link>
-        </Typography>
-        <Typography component="p">
-          Clasificación: {this.state.clasificacion}
-        </Typography>
-        <Typography component="p">
-          No. de etiqueta: {this.state.numeroDeEtiqueta}
+          Esta es la descripción del fabricante Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur.
         </Typography>
       </CardContent>
     </Card>
@@ -57,4 +46,4 @@ class BottleCard extends Component {
     );
   }
 }
-export default BottleCard;
+export default FabricanteCard;
