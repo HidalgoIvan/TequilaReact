@@ -27,7 +27,7 @@ class CardGrid extends Component {
             }
           });
       }
-      }
+    }
 
 
 

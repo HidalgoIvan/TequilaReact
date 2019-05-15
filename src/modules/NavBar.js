@@ -15,6 +15,7 @@ class NavBar extends Component {
       				<span className="mdc-top-app-bar__title bar__title"><Link to={`/table`} style={{color: "white", textDecoration: "none"}}>Historial</Link></span>
       				<span className="mdc-top-app-bar__title bar__title"><Link to={`/tequilas`} style={{color: "white", textDecoration: "none"}}>Catálogo</Link></span>
       				<span className="mdc-top-app-bar__title bar__title"><Link to={`/tequilas/search/0`} style={{color: "white", textDecoration: "none"}}>Búsqueda</Link></span>
+              <span className="mdc-top-app-bar__title bar__title"><Link to={`/registrarBotella`} style={{color: "white", textDecoration: "none"}}>Registrar botella</Link></span>
               <span className="mdc-top-app-bar__title bar__title"><Link to={`/`} style={{color: "white", textDecoration: "none"}}>Cerrar sesión</Link></span>
       				<span className="mdc-top-app-bar__title bar__title"></span>
           </Toolbar>

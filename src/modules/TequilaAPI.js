@@ -11,7 +11,6 @@ module.exports = {
     request2.post({ headers: {'content-type' : 'application/json'}
                , url: "http://localhost:4000/graphql", body: JSON.stringify(json)
                }, function(error, response, body){
-                 console.log(response.body);
     ServerActions.getTequila(response.body);
     });
   },
@@ -26,8 +25,5 @@ module.exports = {
       });
   },
   registrarBotella: function(botella){
-    console.log("estoy en registrar botella");
-
-
   }
 };

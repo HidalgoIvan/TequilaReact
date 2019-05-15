@@ -6,7 +6,9 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-var etiquetaLoca = "";
+var TodoStore = require('./Store/Store.js');
+var TodoActions = require('./Actions/AppActions.js');
+var etiqueta = "";
 const styles = {
   root: {
     flexGrow: 1,
@@ -16,49 +18,33 @@ const styles = {
   },
 };
 class CardGridSpecific extends Component {
-  updateInputValue = (evt) => {
-    console.log("event:", evt.target.value);
-    this.setState({
-      etiqueta: evt.target.value
-    });
-    etiquetaLoca = evt.target.value
-    console.log("ETIQUETA VALUE:", etiquetaLoca);
+  componentDidMount(){
+      TodoActions.getTequila(this.state.botellas);
   }
-
+  handlerUserInput(e){
+    const value = e.target.value;
+    this.setState({etiqueta:value});
+    etiqueta = value;
+  }
   render() {
     this.state={
       tequilas: this.props.tequila,
-      etiqueta: etiquetaLoca,
+      etiqueta: etiqueta
     }
     var botellasTequila = [];
-    console.log("STATE TEQUILAS");
-    console.log(this.state.tequilas.list);
-
-    if(this.state.tequilas.list !== undefined && this.state.tequilas.list !== null) {
-      var data = this.state.tequilas.list;
-      var i = 1;
-      data.forEach(item => {
-          if(item !== undefined){
-            item.forEach(item2 => {
-              /*item = objeto [] de botellas
-              item.marca
-              item.submarca
-              item.fotografia
-              item.clasificacion
-              item.numeroDeEtiqueta*/
-              if(item2.numeroDeEtiqueta == this.state.etiqueta)
-              {
-              botellasTequila.push(<BottleCard key={i} fotografia={item2.fotografia} marca={item2.marca} submarca={item2.submarca} clasificacion={item2.clasificacion} numeroDeEtiqueta={item2.numeroDeEtiqueta}/>);
-              i++;
-              }
-            });
-
-          }
-        });
-        if(botellasTequila.length == 0)
-        {
-          botellasTequila.push(<Typography variant='h6' gutterBottom>Ninguna botella coincide con la etiqueta {this.state.etiqueta}</Typography>);
-        }
+    if(this.state.tequilas.listTequila[0] !== undefined && this.state.tequilas.listTequila[0] !== null) {
+      var laChida = this.state.tequilas.listTequila[0];
+      laChida = JSON.parse(laChida).data.botellas;
+      var data = laChida;
+      if(data[0] != undefined){
+        var i = 1;
+        data.forEach(item => {
+            if(item !== undefined && item.numeroDeEtiqueta == this.state.etiqueta){
+                botellasTequila.push(<BottleCard key={i} fotografia={item.fotografia} marca={item.marca} submarca={item.submarca} fotografia={item.fotografia} clasificacion={item.clasificacion} numeroDeEtiqueta={item.numeroDeEtiqueta}/>);
+                i++;
+            }
+          });
+      }
     }
     return (
       <div className={styles.root}>
@@ -75,7 +61,8 @@ class CardGridSpecific extends Component {
           InputLabelProps={{
             shrink: true,
           }}
-          onChange={this.updateInputValue}
+          name="etiqueta"
+          onChange={(event) => this.handlerUserInput(event)}
         />
         <Grid container spacing={24} justify="space-evenly" alignItems="center">
           {botellasTequila}
