@@ -100,12 +100,12 @@ class Login extends Component {
           {
           console.log("LOGIN RESULT", result.data.autenticar.login);
           console.log();
-          //context.history.push('/tequilas');
+          this.props.history.push("/tequilas")
           }else{
             alert("Usuario o contraseña incorrectos");
           }
       })
-
+    
     //link("/tequilas")
     
   }
