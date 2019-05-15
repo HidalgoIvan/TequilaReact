@@ -75,7 +75,7 @@ class Login extends Component {
                 disabled={!this.state.formValid}
                 onClick={() => this.login(this.props)}
           >
-            <Link style={{textDecoration: "none"}}>Login</Link>
+            Login
       </Button>
 
         </form>
