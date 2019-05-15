@@ -3,6 +3,7 @@ import NavBarPre from './NavBarPre';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { link } from 'fs';
 const styles = {
   container: {
     display: 'flex',
@@ -66,7 +67,13 @@ class Login extends Component {
             onChange={(event) => this.handleUserInput(event)}
             style={{margin:"0 auto"}}
           /><br/>
-          <Button variant="outlined" color="primary" style={styles.button} disabled={!this.state.formValid}>
+          <Button
+                variant="outlined" 
+                color="primary" 
+                style={styles.button} 
+                disabled={!this.state.formValid}
+                onClick={this.login.bind(this)}
+          >
             <Link to={`/tequilas`} style={{textDecoration: "none"}}>Login</Link>
       </Button>
 
@@ -75,7 +82,25 @@ class Login extends Component {
       </div >
     );
   }
+  login(){
+    var request = require('request');
 
+    var user = this.state.email;
+    var password = this.state.password;
+
+      var queryValues = `{ authenticate(user: "${user}" password: "${password}") { login } }`;
+      var json = { query: queryValues };
+      request.post({
+          headers: { 'content-type': 'application/json' }
+          , url: "http://localhost:4000/graphql", body: JSON.stringify(json)
+      }, function (error, response, body) {
+          var result = JSON.parse(response.body);
+                   
+      })
+
+    //link("/tequilas")
+    
+  }
   handleUserInput(e) {
     console.log(e);
     const name = e.target.name;
