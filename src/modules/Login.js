@@ -106,7 +106,6 @@ class Login extends Component {
           }
       })
     
-    //link("/tequilas")
     
   }
   handleUserInput(e) {
