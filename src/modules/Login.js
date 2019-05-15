@@ -3,7 +3,7 @@ import NavBarPre from './NavBarPre';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { link } from 'fs';
+import ReactDOM from "react-dom";
 const styles = {
   container: {
     display: 'flex',
@@ -25,11 +25,11 @@ const styles = {
 }
 class Login extends Component {
 
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
     this.state = {
-      email: '',
-      password: '',
+      email: 'hidalgoivanhi@gmail.com',
+      password: '123456789',
       formErrors: { email: '', password: '' },
       emailValid: false,
       passwordValid: false,
@@ -72,9 +72,9 @@ class Login extends Component {
                 color="primary" 
                 style={styles.button} 
                 disabled={!this.state.formValid}
-                onClick={this.login.bind(this)}
+                onClick={() => this.login()}
           >
-            <Link to={`/tequilas`} style={{textDecoration: "none"}}>Login</Link>
+            <Link style={{textDecoration: "none"}}>Login</Link>
       </Button>
 
         </form>
@@ -88,14 +88,22 @@ class Login extends Component {
     var user = this.state.email;
     var password = this.state.password;
 
-      var queryValues = `{ authenticate(user: "${user}" password: "${password}") { login } }`;
+      var queryValues = `{ autenticar(user: "${user}" password: "${password}") { login } }`;
       var json = { query: queryValues };
       request.post({
           headers: { 'content-type': 'application/json' }
           , url: "http://localhost:4000/graphql", body: JSON.stringify(json)
       }, function (error, response, body) {
           var result = JSON.parse(response.body);
-                   
+          console.log("RESULT", result);
+          if(result.data.autenticar!= null && result.data.autenticar!= undefined)
+          {
+          console.log("LOGIN RESULT", result.data.autenticar.login);
+          console.log();
+          //context.history.push('/tequilas');
+          }else{
+            alert("Usuario o contraseña incorrectos");
+          }
       })
 
     //link("/tequilas")
