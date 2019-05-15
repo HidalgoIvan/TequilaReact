@@ -40,7 +40,7 @@ class Login extends Component {
 
 
   render() {
-    console.log(this.props);
+    //console.log(this.props);
     return (
       <div>
         <NavBarPre />
@@ -69,9 +69,9 @@ class Login extends Component {
             style={{margin:"0 auto"}}
           /><br/>
           <Button
-                variant="outlined" 
-                color="primary" 
-                style={styles.button} 
+                variant="outlined"
+                color="primary"
+                style={styles.button}
                 disabled={!this.state.formValid}
                 onClick={() => this.login(this.props)}
           >
@@ -106,8 +106,8 @@ class Login extends Component {
             alert("Usuario o contraseña incorrectos");
           }
       })
-    
-    
+
+
   }
   handleUserInput(e) {
     console.log(e);
