@@ -5,7 +5,7 @@ module.exports = {
 
   getTequila: function(response) {
     AppDispatcher.handleServerAction({
-      actionType: TodoConstants.GET_TEQUILA_RESPONSE,
+      actionType: TodoConstants.GET_TEQUILA,
       response: response
     });
   },
@@ -15,4 +15,10 @@ module.exports = {
       response: response
     });
   },
+  postBotella: function(response){
+    AppDispatcher.handleServerAction({
+      actionType: TodoConstants.POST_BOTELLA,
+      response: response
+    })
+  }
 };
