@@ -8,6 +8,7 @@ import TequilasSearch from './modules/Tequilas/TequilasSearch.js';
 import Login from './modules/Login.js';
 import TequilaTable from './modules/TequilaTable.js';
 import Table from './modules/Table.js';
+import RegisterBottle from './/modules/RegisterBottle.js';
 
 class App extends Component {
   render() {
@@ -19,6 +20,7 @@ class App extends Component {
           <Route path='/table' exact component={Table}/>
           <Route path='/tequilas' exact component={Tequilas}/>
           <Route path='/tequilas/search/:etiqueta' exact component={TequilasSearch}/>
+          <Route path='/registrarBotella' exact component={RegisterBottle}/>
 
       </BrowserRouter>
     );
