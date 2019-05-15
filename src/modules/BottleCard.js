@@ -38,6 +38,7 @@ class BottleCard extends Component {
         <Typography color="textSecondary" gutterBottom>
           Información de la botella
         </Typography>
+        <img src="http://cdn.venezuelaaldia.com/wp-content/uploads/2018/06/Nalgas-696x523.jpg" style={{height: 300, width: "auto"}}/>
         <Typography variant="h5">
           {this.state.submarca}
         </Typography>
