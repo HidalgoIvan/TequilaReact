@@ -188,7 +188,7 @@ class RegisterBottle extends Component {
         }, function (error, response, body) {
             console.log("HOLA");
             var result = JSON.parse(response.body);
-           
+            console.log("response",response);
         })
     }
 
