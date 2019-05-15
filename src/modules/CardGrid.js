@@ -13,9 +13,9 @@ class CardGrid extends Component {
       tequilas: this.props.tequila
     }
     var botellasTequila = [];
-
-    if(this.state.tequilas.list !== undefined && this.state.tequilas.list !== null) {
-      var data = this.state.tequilas.list;
+    console.log(this.state.tequilas);
+    if(this.state.tequilas !== undefined && this.state.tequilas !== null) {
+      var data = this.state.tequilas;
       //data = JSON.parse(data)
       if(data[0] != undefined){
         data = JSON.parse(data);

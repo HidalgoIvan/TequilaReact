@@ -5,7 +5,7 @@ var request2 = require('request');
 
 module.exports = {
 
-  get: function(tequila) {
+  get: function() {
     var queryValues = '{ botellas { clasificacion fotografia marca numeroDeEtiqueta submarca } }';
     var json = { query : queryValues };
     request2.post({ headers: {'content-type' : 'application/json'}
@@ -25,4 +25,9 @@ module.exports = {
         ServerActions.getFabricante(response.body);
       });
   },
+  registrarBotella: function(botella){
+    console.log("estoy en registrar botella");
+
+
+  }
 };

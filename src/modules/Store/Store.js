@@ -9,7 +9,9 @@ var CHANGE_EVENT = 'change';
 
 // Define the store as an empty array
 var _store = {
-  list: [],
+  listTequila: [],
+  listFabricantes: [],
+  listBotellas: [],
   editing: false
 };
 
@@ -35,8 +37,14 @@ var TodoStore = ObjectAssign( {}, EventEmitter.prototype, {
     return _store;
   },
 
+  getTequilas: function() {
+    return _store.listTequila;
+  },
+  getBotellas: function() {
+    return _store.listBotellas;
+  },
   getListFabricantes: function() {
-    return _storeFabricantes;
+    return _store.listFabricantes;
   }
 
 });
@@ -50,17 +58,17 @@ AppDispatcher.register(function(payload) {
 
   switch(action.actionType) {
 
-    case AppConstants.GET_TEQUILA_RESPONSE:
+    case AppConstants.GET_TEQUILA:
       console.log(action.response);
       // Construct the new todo string
       var newTodo = action.response;
 
       // Add the new todo to the list
-      if(_store.list.length<1){
-        _store.list.push(newTodo);
+      if(_store.listTequila.length<1){
+        _store.listTequila.push(newTodo);
       }else{
-        _store.list.pop();
-        _store.list.push(newTodo);
+        _store.listTequila.pop();
+        _store.listTequila.push(newTodo);
       }
       TodoStore.emit(CHANGE_EVENT);
       break;
@@ -70,14 +78,28 @@ AppDispatcher.register(function(payload) {
         var newTodo = action.response;
 
         // Add the new todo to the list
-        if(_storeFabricantes.list.length<1){
-          _storeFabricantes.list.push(newTodo);
+        if(_store.listFabricantes.length<1){
+          _store.listFabricantes.push(newTodo);
         }else{
-          _storeFabricantes.list.pop();
-          _storeFabricantes.list.push(newTodo);
+          _store.listFabricantes.pop();
+          _store.listFabricantes.push(newTodo);
         }
         TodoStore.emit(CHANGE_EVENT);
         break;
+        case AppConstants.POST_BOTELLA:
+        console.log(action.response);
+        // Construct the new todo string
+        var newTodo = action.response;
+
+        // Add the new todo to the list
+        if(_store.listBotellas.length<1){
+          _store.listBotellas.push(newTodo);
+        }else{
+          _store.listBotellas.pop();
+          _store.listBotellas.push(newTodo);
+        }
+        TodoStore.emit(CHANGE_EVENT);
+          break;
 
     default:
       return true;

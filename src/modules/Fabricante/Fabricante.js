@@ -6,38 +6,48 @@ var TodoStore = require('../Store/Store.js');
 var fabricantesSearch = [];
 class Fabricante extends Component {
 
-  state = {
-    fabricantes: TodoStore.getListFabricantes().list,
-    fabricante: this.props.match.params.fabricante,
-  };
 
   getInitialState = () => {
     return TodoStore.getListFabricantes();
   }
 
   _onChange = () => {
-    this.setState({ list: TodoStore.getListFabricantes() });
+    this.setState({ fabricantes: TodoStore.getListFabricantes() });
   }
 
   componentDidMount() {
     console.log(this.state.fabricantes);
+    this.setState({
+      fabricantes: TodoStore.getListFabricantes() ,
+      fabricante: this.props.match.params.fabricante
+    });
     TodoActions.getFabricante(this.state.fabricantes);
     TodoStore.addChangeListener(this._onChange);
   }
 
   render() {
-    console.log({"fabricante":this.state.fabricantes});
+    this.state = {
+      fabricantes: TodoStore.getListFabricantes(),
+      fabricante: this.props.match.params.fabricante,
+    };
 
-    this.state.fabricantes.forEach(item => {
-      item.forEach(item2 => {
-        console.log({ "item": item2 });
-        if (item2.nombre === this.state.fabricante) {
-          console.log({ "itemsearch": item2 });
-          fabricantesSearch.push(item2);
-        }
-        // console.log({ "search": fabricantesSearch });
+    console.log({"fabricante":this.state.fabricantes});
+    if(this.state.fabricantes !== undefined && this.state.fabricantes !== null) {
+      var data = this.state.fabricantes;
+      //data = JSON.parse(data)
+      if(data[0] != undefined){
+        data = data[0]
+        var i = 1;
+        data.forEach(item => {
+          console.log({ "item": item });
+          if (item.nombre === this.state.fabricante) {
+            console.log({ "itemsearch": item });
+            fabricantesSearch.push(item);
+          }
+          // console.log({ "search": fabricantesSearch });
       });
-    });
+    }
+    }
     return (
       // <FabricanteCard nombre={fabricantesSearch['nombre']} marcas={fabricantesSearch['marcas']}/>
       <div>

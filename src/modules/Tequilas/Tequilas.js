@@ -7,15 +7,15 @@ var TodoStore = require('../Store/Store.js');
 
 class Tequilas extends Component {
   state={
-    botellas: TodoStore.getList()
+    botellas: TodoStore.getTequilas()
   };
 
   getInitialState =() => {
-    return TodoStore.getList();
+    return TodoStore.getTequilas();
   }
 
   _onChange = () => {
-    this.setState({list: TodoStore.getList()});
+    this.setState({botellas: TodoStore.getTequilas()});
   }
 
   componentDidMount(){
