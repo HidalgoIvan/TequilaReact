@@ -40,6 +40,7 @@ class Login extends Component {
 
 
   render() {
+    console.log(this.props);
     return (
       <div>
         <NavBarPre />
@@ -72,7 +73,7 @@ class Login extends Component {
                 color="primary" 
                 style={styles.button} 
                 disabled={!this.state.formValid}
-                onClick={() => this.login()}
+                onClick={() => this.login(this.props)}
           >
             <Link style={{textDecoration: "none"}}>Login</Link>
       </Button>
@@ -82,9 +83,10 @@ class Login extends Component {
       </div >
     );
   }
-  login(){
+  login(h){
+    console.log("H",h);
     var request = require('request');
-
+    console.log("MAXI VERGA");
     var user = this.state.email;
     var password = this.state.password;
 
@@ -96,11 +98,10 @@ class Login extends Component {
       }, function (error, response, body) {
           var result = JSON.parse(response.body);
           console.log("RESULT", result);
-          if(result.data.autenticar!= null && result.data.autenticar!= undefined)
+          if(result.data.autenticar!= null && result.data.autenticar!= undefined && result.data.autenticar.login == "successful")
           {
           console.log("LOGIN RESULT", result.data.autenticar.login);
-          console.log();
-          this.props.history.push("/tequilas")
+          h.history.push("/tequilas")
           }else{
             alert("Usuario o contraseña incorrectos");
           }
