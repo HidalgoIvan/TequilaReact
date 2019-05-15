@@ -159,7 +159,7 @@ class RegisterBottle extends Component {
                         color="primary"
                         style={styles.button}
                         disabled={!this.state.formValid}
-                        onClick={this.registrarBottle()}
+                        onClick={this.registrarBottle.bind(this)}
                     >
                         Registrar
             </Button>
@@ -170,6 +170,8 @@ class RegisterBottle extends Component {
 
     registrarBottle() {
         console.log("Registrar");
+        console.log(this.state);
+        
         var clasificacion = this.state.clasificacion;
         var fotografia = this.state.fotografia;
         var marca = this.state.marca;
