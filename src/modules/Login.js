@@ -28,8 +28,8 @@ class Login extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      email: 'hidalgoivanhi@gmail.com',
-      password: '123456789',
+      email: '',
+      password: '',
       formErrors: { email: '', password: '' },
       emailValid: false,
       passwordValid: false,
@@ -84,9 +84,7 @@ class Login extends Component {
     );
   }
   login(h){
-    console.log("H",h);
     var request = require('request');
-    console.log("MAXI VERGA");
     var user = this.state.email;
     var password = this.state.password;
 
