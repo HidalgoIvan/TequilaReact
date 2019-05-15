@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 var TodoStore = require('./Store/Store.js');
 var TodoActions = require('./Actions/AppActions.js');
-var tuputamadrenorbi='pon casa'
+
 const styles = {
   root: {
     flexGrow: 1,

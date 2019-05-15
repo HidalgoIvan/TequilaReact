@@ -31,7 +31,6 @@ class Fabricante extends Component {
       fabricante: this.props.match.params.fabricante,
     };
 
-    console.log({"fabricante":this.state.fabricantes});
     if(this.state.fabricantes !== undefined && this.state.fabricantes !== null) {
       var data = this.state.fabricantes;
       //data = JSON.parse(data)

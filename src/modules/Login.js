@@ -28,8 +28,8 @@ class Login extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      email: 'hidalgoivanhi@gmail.com',
-      password: '123456789',
+      email: '',
+      password: '',
       formErrors: { email: '', password: '' },
       emailValid: false,
       passwordValid: false,
@@ -40,7 +40,7 @@ class Login extends Component {
 
 
   render() {
-    console.log(this.props);
+    //console.log(this.props);
     return (
       <div>
         <NavBarPre />
@@ -69,13 +69,13 @@ class Login extends Component {
             style={{margin:"0 auto"}}
           /><br/>
           <Button
-                variant="outlined" 
-                color="primary" 
-                style={styles.button} 
+                variant="outlined"
+                color="primary"
+                style={styles.button}
                 disabled={!this.state.formValid}
                 onClick={() => this.login(this.props)}
           >
-            <Link style={{textDecoration: "none"}}>Login</Link>
+            Login
       </Button>
 
         </form>
@@ -84,9 +84,7 @@ class Login extends Component {
     );
   }
   login(h){
-    console.log("H",h);
     var request = require('request');
-    console.log("MAXI VERGA");
     var user = this.state.email;
     var password = this.state.password;
 
@@ -106,8 +104,8 @@ class Login extends Component {
             alert("Usuario o contraseña incorrectos");
           }
       })
-    
-    
+
+
   }
   handleUserInput(e) {
     console.log(e);

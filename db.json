@@ -69,6 +69,13 @@
         "marcas": "Patron reposado, Patron plata",
         "logo": "img/patron.jpg",
         "desc":"Esta es una prueba..."
+      },
+      {
+        "idFabricante": "6",
+        "nombre": "Maestro Dobel",
+        "marcas": "Diamante",
+        "logo": "img/patron.jpg",
+        "desc":"Nueva marca competidora"
       }
     ]
 }
