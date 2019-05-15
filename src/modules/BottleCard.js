@@ -38,7 +38,6 @@ class BottleCard extends Component {
         <Typography color="textSecondary" gutterBottom>
           Información de la botella
         </Typography>
-        <img src={require(`../${this.state.fotografia}`)} style={{height: 300, width: "auto"}}/>
         <Typography variant="h5">
           {this.state.submarca}
         </Typography>

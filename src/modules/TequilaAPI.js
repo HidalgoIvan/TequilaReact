@@ -1,19 +1,22 @@
 
 var ServerActions = require('./Actions/ServerActions');
 var request = require('superagent');
+var request2 = require('request');
 
 module.exports = {
 
   get: function(tequila) {
-    request.get('https://my-json-server.typicode.com/HidalgoIvan/TequilaReact/botellas')
-      .set('Accept', 'application/json')
-      .end(function(err, response) {
-        if (err) return console.error(err);
-
-        ServerActions.getTequila(response.body);
-      });
+    var queryValues = '{ botellas { clasificacion fotografia marca numeroDeEtiqueta submarca } }';
+    var json = { query : queryValues };
+    request2.post({ headers: {'content-type' : 'application/json'}
+               , url: "http://localhost:4000/graphql", body: JSON.stringify(json)
+               }, function(error, response, body){
+                 console.log(response.body);
+    ServerActions.getTequila(response.body);
+    });
   },
   getFabricantes: function(fabricante) {
+    console.log("estoy en get fabricantes");
     request.get('https://my-json-server.typicode.com/HidalgoIvan/TequilaReact/fabricantes')
       .set('Accept', 'application/json')
       .end(function(err, response) {
@@ -21,5 +24,5 @@ module.exports = {
 
         ServerActions.getFabricante(response.body);
       });
-  }
+  },
 };

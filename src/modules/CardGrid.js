@@ -13,30 +13,24 @@ class CardGrid extends Component {
       tequilas: this.props.tequila
     }
     var botellasTequila = [];
-    console.log("STATE TEQUILAS");
-    console.log(this.state.tequilas.list);
 
     if(this.state.tequilas.list !== undefined && this.state.tequilas.list !== null) {
       var data = this.state.tequilas.list;
-      console.log("DATA 18");
-      console.log(data); //Aqui imprime
-      var i = 1;
-      data.forEach(item => {
-          if(item !== undefined){
-            item.forEach(item2 => {
-              /*item = objeto [] de botellas
-              item.marca
-              item.submarca
-              item.fotografia
-              item.clasificacion
-              item.numeroDeEtiqueta*/
-              botellasTequila.push(<BottleCard key={i} fotografia={item2.fotografia} marca={item2.marca} submarca={item2.submarca} fotografia={item2.fotografia} clasificacion={item2.clasificacion} numeroDeEtiqueta={item2.numeroDeEtiqueta}/>);
-              i++;
-            });
+      //data = JSON.parse(data)
+      if(data[0] != undefined){
+        data = JSON.parse(data);
+        var i = 1;
+        data.data.botellas.forEach(item => {
+            if(item !== undefined){
+                botellasTequila.push(<BottleCard key={i} fotografia={item.fotografia} marca={item.marca} submarca={item.submarca} fotografia={item.fotografia} clasificacion={item.clasificacion} numeroDeEtiqueta={item.numeroDeEtiqueta}/>);
+                i++;
+            }
+          });
+      }
+      }
 
-          }
-        });
-    }
+
+
     return (
       <div className={styles.root}>
         <NavBar/>
