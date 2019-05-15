@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 var TodoStore = require('./Store/Store.js');
 var TodoActions = require('./Actions/AppActions.js');
-var etiqueta = "";
+var tuputamadrenorbi='pon casa'
 const styles = {
   root: {
     flexGrow: 1,
@@ -18,19 +18,26 @@ const styles = {
   },
 };
 class CardGridSpecific extends Component {
+  constructor(props) {
+    super(props);
+    this.state={
+      tequilas: this.props.tequila,
+      etiqueta: ''
+    }
+  }
   componentDidMount(){
       TodoActions.getTequila(this.state.botellas);
   }
   handlerUserInput(e){
     const value = e.target.value;
+    const name = e.target.name;
     this.setState({etiqueta:value});
-    etiqueta = value;
   }
+
+
   render() {
-    this.state={
-      tequilas: this.props.tequila,
-      etiqueta: etiqueta
-    }
+  
+    
     var botellasTequila = [];
     if(this.state.tequilas.listTequila[0] !== undefined && this.state.tequilas.listTequila[0] !== null) {
       var laChida = this.state.tequilas.listTequila[0];
@@ -51,6 +58,9 @@ class CardGridSpecific extends Component {
         <NavBar/>
         <TextField
           id="outlined-full-width"
+          name="etiqueta"
+          value={this.state.etiqueta}
+          className="form-group"
           label="Etiqueta"
           style={{ margin: 8 }}
           placeholder="0123456789"
@@ -61,7 +71,6 @@ class CardGridSpecific extends Component {
           InputLabelProps={{
             shrink: true,
           }}
-          name="etiqueta"
           onChange={(event) => this.handlerUserInput(event)}
         />
         <Grid container spacing={24} justify="space-evenly" alignItems="center">
