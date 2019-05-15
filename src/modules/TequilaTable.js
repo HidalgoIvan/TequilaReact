@@ -22,9 +22,7 @@ import { lighten } from '@material-ui/core/styles/colorManipulator';
 var TodoActions = require('./Actions/AppActions.js');
 var TodoStore = require('./Store/Store.js');
 
-
-
-
+var first = true;
 
 
 let counter = 0;
@@ -44,7 +42,7 @@ function desc(a, b, orderBy) {
 }
 
 function stableSort(array, cmp) {
-    
+
 
     const stabilizedThis = array.map((el, index) => [el, index]);
     stabilizedThis.sort((a, b) => {
@@ -76,11 +74,11 @@ class TequilaTable extends React.Component {
         const { onSelectAllClick, order, orderBy, numSelected, rowCount } = this.props;
 
         return (
-            
-            
+
+
             <TableHead>
                 <TableRow>
-                   
+
                     {rows.map(
                         row => (
                             <TableCell
@@ -150,7 +148,7 @@ let EnhancedTableToolbar = props => {
     const { numSelected, classes } = props;
 
     return (
-        
+
         <Toolbar
             className={classNames(classes.root, {
                 [classes.highlight]: numSelected > 0,
@@ -210,7 +208,7 @@ const styles = theme => ({
 class EnhancedTable extends Component {
     //set tequilas
     state = {
-        botellas: TodoStore.getList().list,
+        botellas: TodoStore.getTequilas(),
         order: 'asc',
         orderBy: 'marca',
         selected: [],
@@ -219,24 +217,28 @@ class EnhancedTable extends Component {
     };
 
 
+
+
     getInitialState = () => {
         return {
-            botellas: TodoStore.getList().list,
+            botellas: TodoStore.getTequilas(),
             order: 'asc',
             orderBy: 'marca',
             selected: [],
             page: 0,
             rowsPerPage: 5,
         };
+
     }
 
     _onChange = () => {
-        this.setState({ list: TodoStore.getList().list });
+        this.setState({ botellas: TodoStore.getTequilas() });
     }
 
     componentDidMount() {
         TodoActions.getTequila(this.state.botellas);
         TodoStore.addChangeListener(this._onChange);
+
     }
 
 
@@ -290,12 +292,30 @@ class EnhancedTable extends Component {
 
     isSelected = id => this.state.selected.indexOf(id) !== -1;
 
+    
     render() {
+        var botellasTequila = [];
+        
+        console.log("Render:" ,this.state.botellas);
+
+        if (this.state.botellas[0] !== undefined &&
+            this.state.botellas[0] !== null &&
+            this.state.botellas[0].clasificacion === undefined   
+        ) {
+            var listBottle = this.state.botellas[0];
+            var listBottle2 = JSON.parse(listBottle).data.botellas;
+            this.state.botellas = listBottle2;
+            first=false;
+            
+        }
+
+        console.log(this.state.botellas);
+
 
         const { classes } = this.props;
         const { botellas, order, orderBy, selected, rowsPerPage, page } = this.state;
         const emptyRows = rowsPerPage - Math.min(rowsPerPage, botellas.length - page * rowsPerPage);
- 
+
         if (botellas.length != 0) {
             return (
 
@@ -314,10 +334,10 @@ class EnhancedTable extends Component {
                                 rowCount={botellas.length}
                             />
                             <TableBody>
-                                {stableSort(botellas[0], getSorting(order, orderBy))
+                                {stableSort(botellas, getSorting(order, orderBy))
                                     .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                                     .map(n => {
-                                        
+
                                         const isSelected = this.isSelected(n.id);
                                         return (
                                             <TableRow
@@ -326,10 +346,10 @@ class EnhancedTable extends Component {
                                                 role="checkbox"
                                                 aria-checked={isSelected}
                                                 tabIndex={-1}
-                                                key={n.id}
+                                                //key={n.id}
                                                 selected={isSelected}
                                             >
-                                                
+
                                                 <TableCell component="th" scope="row" padding="none">
                                                     {n.marca}
                                                 </TableCell>
@@ -367,7 +387,7 @@ class EnhancedTable extends Component {
             );
         }
         else {
-            return(<p>No hay datos</p>)
+            return (<p>No hay datos</p>)
         }
     }
 }
