@@ -29,7 +29,6 @@ class RegisterBottle extends Component {
 
 
     handleUserInput(e) {
-        console.log(e);
         const name = e.target.name;
         const value = e.target.value;
         this.setState({ [name]: value },
@@ -186,10 +185,26 @@ class RegisterBottle extends Component {
             headers: { 'content-type': 'application/json' }
             , url: "http://localhost:4000/graphql", body: JSON.stringify(json)
         }, function (error, response, body) {
-            console.log("HOLA");
             var result = JSON.parse(response.body);
-            console.log("response",response);
+           
         })
+
+        var resetState = {
+            clasificacion: '',
+            fotografia: '',
+            marca: '',
+            numeroDeEtiqueta: '',
+            submarca: '',
+            formErrors: { clasificacion: '', fotografia: '', marca: '', numeroDeEtiqueta: '', submarca: '' },
+            clasificacionValid: false,
+            fotografiaValid: false,
+            marcaValid: false,
+            numeroDeEtiquetaValid: false,
+            submarcaValid: false,
+            formValid: false
+        }
+
+        this.setState(resetState);
     }
 
 
