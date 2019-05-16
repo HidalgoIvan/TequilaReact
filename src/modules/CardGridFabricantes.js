@@ -31,34 +31,23 @@ class CardGridFabricantes extends Component {
       fabricante: fabricanteLoca,
     }
     var botellasTequila = [];
-    console.log("STATE TEQUILAS");
-    console.log(this.state.tequilas.list);
-
-    if(this.state.tequilas.list !== undefined && this.state.tequilas.list !== null) {
-      var data = this.state.tequilas.list;
-      var i = 1;
-      data.forEach(item => {
-          if(item !== undefined){
-            item.forEach(item2 => {
-              /*item = objeto [] de botellas
-              item.marca
-              item.submarca
-              item.fotografia
-              item.clasificacion
-              item.numeroDefabricante*/
-              if(item2.fabricante == this.state.fabricante)
-              {
-              botellasTequila.push(<BottleCard key={i} fotografia={item2.fotografia} marca={item2.marca} submarca={item2.submarca} clasificacion={item2.clasificacion} fabricante={item2.fabricante}/>);
-              i++;
-              }
-            });
-
-          }
-        });
-        if(botellasTequila.length == 0)
-        {
-          botellasTequila.push(<Typography variant='h6' gutterBottom>Ninguna botella coincide con el fabricante {this.state.fabricante}</Typography>);
-        }
+    if(this.state.tequilas.listTequila[0] !== undefined && this.state.tequilas.listTequila[0] !== null) {
+      var laChida = this.state.tequilas.listTequila[0];
+      laChida = JSON.parse(laChida).data.botellas;
+      var data = laChida;
+      if(data[0] != undefined){
+        var i = 1;
+        data.forEach(item => {
+            if(item !== undefined && item.fabricante== this.state.fabricante){
+                botellasTequila.push(<BottleCard key={i} fotografia={item.fotografia} marca={item.marca} submarca={item.submarca} fotografia={item.fotografia} clasificacion={item.clasificacion} numeroDeEtiqueta={item.numeroDeEtiqueta}/>);
+                i++;
+            }
+          });
+      }
+    }
+    if(botellasTequila.length == 0)
+    {
+      botellasTequila.push(<Typography variant='h6' gutterBottom>Ninguna botella coincide con el fabricante {this.state.fabricante}</Typography>);
     }
     return (
       <div className={styles.root}>

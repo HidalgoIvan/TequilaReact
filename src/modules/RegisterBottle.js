@@ -183,10 +183,10 @@ class RegisterBottle extends Component {
         var json = { query: queryValues };
         request.post({
             headers: { 'content-type': 'application/json' }
-            , url: "http://localhost:4000/graphql", body: JSON.stringify(json)
+            , url: "http://192.168.99.100:4000/graphql", body: JSON.stringify(json)
         }, function (error, response, body) {
             var result = JSON.parse(response.body);
-           
+           alert("La botella se a registrado exitosamente");
         })
 
         var resetState = {

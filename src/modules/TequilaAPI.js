@@ -9,7 +9,7 @@ module.exports = {
     var queryValues = '{ botellas { clasificacion fotografia marca numeroDeEtiqueta submarca } }';
     var json = { query : queryValues };
     request2.post({ headers: {'content-type' : 'application/json'}
-               , url: "http://localhost:4000/graphql", body: JSON.stringify(json)
+               , url: "http://192.168.99.100:4000/graphql", body: JSON.stringify(json)
                }, function(error, response, body){
     ServerActions.getTequila(response.body);
     });

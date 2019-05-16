@@ -53,6 +53,10 @@ class CardGridSpecific extends Component {
           });
       }
     }
+    if(botellasTequila.length == 0)
+    {
+      botellasTequila.push(<Typography variant='h6' gutterBottom>Ninguna botella coincide la etiqueta {this.state.etiqueta}</Typography>);
+    }
     return (
       <div className={styles.root}>
         <NavBar/>
